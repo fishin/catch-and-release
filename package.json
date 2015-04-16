@@ -1,0 +1,32 @@
+{
+  "name": "catch-and-release",
+  "version": "0.0.1",
+  "description": "catch-and-release ======",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fishin/catch-and-release"
+  },
+  "author": "Lloyd Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fishin/catch-and-release/issues"
+  },
+  "homepage": "https://github.com/fishin/catch-and-release",
+  "engines": {
+    "node": ">=0.12.x"
+  },
+  "scripts": {
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "hoek": "2.x.x",
+    "smelt": "git+https://github.com/fishin/smelt"
+  },
+  "devDependencies": {
+    "code": "1.x.x",
+    "hapi": "8.x.x",
+    "lab": "5.x.x",
+    "mock": "git+https://github.com/fishin/mock"
+  }
+}
