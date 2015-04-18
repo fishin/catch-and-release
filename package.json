@@ -1,7 +1,7 @@
 {
   "name": "catch-and-release",
-  "version": "0.0.1",
-  "description": "catch-and-release ======",
+  "version": "0.0.2",
+  "description": "build and deploy functions for ficion",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "node": ">=0.12.x"
   },
   "scripts": {
-    "test": "exit 0"
+    "test": "lab -a code -t 100 -v -m 30000 -L",
+    "json": "lab -a code -r json -t 100 -o lab.json -m 30000 -L"
   },
   "dependencies": {
     "hoek": "2.x.x",
