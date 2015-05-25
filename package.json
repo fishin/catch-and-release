@@ -2,7 +2,7 @@
   "name": "catch-and-release",
   "version": "0.0.2",
   "description": "build and deploy functions for ficion",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/fishin/catch-and-release"
