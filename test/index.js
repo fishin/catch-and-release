@@ -6,7 +6,11 @@ var Path = require('path');
 
 var CatchAndRelease = require('../lib');
 
-var internals = {};
+var internals = {
+    defaults: {
+        pids: []
+    }
+};
 
 var lab = exports.lab = Lab.script();
 var expect = Code.expect;
@@ -18,13 +22,21 @@ describe('catch-and-release', function () {
     it('packageCode', function (done) {
 
         var catchAndRelease = new CatchAndRelease({});
-        var result = catchAndRelease.packageCode('name', __dirname, 'tmp');
-        //console.log(result);
-        expect(result.startTime).to.exist();
-        expect(result.finishTime).to.exist();
-        expect(result.command).to.include('tar ');
-        expect(result.status).to.equal('succeeded');
-        Fs.unlinkSync(Path.join(__dirname, 'name.tar.gz'));
-        done();
+        var options = {
+            name: 'name',
+            path: __dirname,
+            dir: 'tmp',
+            pidsObj: internals.defaults.pids
+        };
+        catchAndRelease.packageCode(options, function (result) {
+
+            //console.log(result);
+            expect(result.startTime).to.exist();
+            expect(result.finishTime).to.exist();
+            expect(result.command).to.include('tar ');
+            expect(result.status).to.equal('succeeded');
+            Fs.unlinkSync(Path.join(__dirname, 'name.tar.gz'));
+            done();
+        });
     });
 });
