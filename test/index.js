@@ -1,33 +1,35 @@
-var Code = require('code');
-var Fs = require('fs');
-var Lab = require('lab');
-var Path = require('path');
+'use strict';
 
-var CatchAndRelease = require('../lib');
+const Code = require('code');
+const Fs = require('fs');
+const Lab = require('lab');
+const Path = require('path');
 
-var internals = {
+const CatchAndRelease = require('../lib');
+
+const internals = {
     defaults: {
         pids: []
     }
 };
 
-var lab = exports.lab = Lab.script();
-var expect = Code.expect;
-var describe = lab.describe;
-var it = lab.it;
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
-describe('catch-and-release', function () {
+describe('catch-and-release', () => {
 
-    it('packageCode', function (done) {
+    it('packageCode', (done) => {
 
-        var catchAndRelease = new CatchAndRelease({});
-        var options = {
+        const catchAndRelease = new CatchAndRelease({});
+        const options = {
             name: 'name',
             path: __dirname,
             dir: 'tmp',
             pidsObj: internals.defaults.pids
         };
-        catchAndRelease.packageCode(options, function (result) {
+        catchAndRelease.packageCode(options, (result) => {
 
             //console.log(result);
             expect(result.startTime).to.exist();
